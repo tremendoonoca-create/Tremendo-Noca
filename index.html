@@ -300,4 +300,61 @@
         <!-- NOTICIA 3 -->
         <article class="news-card">
           <div>
-            <img
+            <img src="logo%20azul.png" alt="Noticia" class="news-img">
+            <h3 class="news-title">Noticia Destacada 3</h3>
+            <p style="font-size: 0.85rem; color: #334155;">Análisis exclusivo del equipo de Tremendo Ñoca Podcast.</p>
+          </div>
+          <a href="https://www.espn.com.ar" target="_blank" class="news-btn">Ver en ESPN</a>
+        </article>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- FUENTES Y FOOTER -->
+  <section class="sources-section">
+    <p style="font-size: 0.85rem; color: #94a3b8; text-transform: uppercase;">Fuentes de información</p>
+    <div class="sources-logos">
+      <img src="https://via.placeholder.com/100x30/0a192f/ffffff?text=TyC+Sports" alt="TyC Sports" class="source-logo">
+      <img src="https://via.placeholder.com/100x30/cc0000/ffffff?text=ESPN" alt="ESPN" class="source-logo">
+      <img src="https://via.placeholder.com/100x30/000000/ffffff?text=Diario+Ole" alt="Olé" class="source-logo">
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-socials">
+      <a href="https://www.facebook.com/profile.php?id=61555152399574" target="_blank"><img src="cara%20ig.png" alt="Facebook"></a>
+      <a href="https://www.instagram.com/tremendo_noca/" target="_blank"><img src="logo%20ig%20de%20ig.png" alt="Instagram"></a>
+      <a href="https://www.youtube.com/@tremendonocapodcast" target="_blank"><img src="logo%20youtube%20ig.png" alt="YouTube"></a>
+      <a href="https://open.spotify.com/show/40DdjJo8T9RGfjvaO6AWNR?si=cadd705275d64582" target="_blank"><img src="spotidy.png" alt="Spotify"></a>
+    </div>
+    <p>© 2026 TREMENDO ÑOCA - Difusión libre de información deportiva.</p>
+  </footer>
+
+  <!-- SCRIPT DE HORA EN VIVO Y MENÚ -->
+  <script>
+    // Reloj digital en vivo
+    function updateTime() {
+      const now = new Date();
+      const hours = String(now.getHours()).padStart(2, '0');
+      const minutes = String(now.getMinutes()).padStart(2, '0');
+      document.getElementById('live-time').textContent = `${hours}:${minutes}`;
+    }
+    setInterval(updateTime, 1000);
+    updateTime();
+
+    // Desplegable del menú
+    const menuBtn = document.getElementById('menuBtn');
+    const navMenu = document.getElementById('navMenu');
+
+    menuBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      navMenu.classList.toggle('active');
+    });
+
+    document.addEventListener('click', () => {
+      navMenu.classList.remove('active');
+    });
+  </script>
+</body>
+</html>
