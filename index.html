@@ -17,11 +17,11 @@
       box-sizing: border-box;
       margin: 0;
       padding: 0;
-      font-family: 'Segoe UI', Arial, sans-serif;
+      font-family: 'Arial Black', 'Segoe UI Bold', sans-serif;
     }
 
     body {
-      background-color: #050814;
+      background-color: #030611;
       color: var(--white);
       display: flex;
       flex-direction: column;
@@ -39,6 +39,7 @@
       gap: 1.2rem;
       font-size: 0.95rem;
       font-weight: 700;
+      font-family: 'Segoe UI', Arial, sans-serif;
     }
 
     .location-tag {
@@ -90,6 +91,7 @@
       width: 220px;
       box-shadow: 0 4px 15px rgba(0,0,0,0.5);
       z-index: 2000;
+      font-family: 'Segoe UI', Arial, sans-serif;
     }
 
     nav.nav-menu.active {
@@ -114,44 +116,45 @@
       background-color: #2500ff;
     }
 
-    /* 3. SECCIONES (SE MUESTRAN/OCULTAN SEGÚN LA SELECCIÓN) */
+    /* 3. SECCIONES DINÁMICAS CON MARCA DE AGUA */
     main {
       flex: 1;
       background-color: #030611;
-      background-image: linear-gradient(rgba(3, 6, 17, 0.85), rgba(3, 6, 17, 0.85)), url('logo%20azul.png');
+      background-image: linear-gradient(rgba(3, 6, 17, 0.88), rgba(3, 6, 17, 0.88)), url('logo%20azul.png');
       background-repeat: no-repeat;
       background-position: center;
       background-size: contain;
-      padding: 2.5rem 1.5rem;
+      padding: 2.5rem 1rem;
     }
 
     .page-section {
-      display: none; /* Por defecto ocultas */
+      display: none;
       max-width: 1200px;
       margin: 0 auto;
     }
 
     .page-section.active-section {
-      display: block; /* Se activa la visible */
+      display: block;
     }
 
     /* ESTILOS INICIO / NOTICIAS */
     .news-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
       gap: 2rem;
     }
 
     .news-card {
       background-color: var(--card-gray);
       border-radius: 16px;
-      min-height: 320px;
+      min-height: 300px;
       padding: 1.2rem;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
       color: var(--text-dark);
       box-shadow: 0 6px 18px rgba(0, 0, 0, 0.6);
+      font-family: 'Segoe UI', Arial, sans-serif;
     }
 
     .tag-category {
@@ -168,7 +171,7 @@
 
     .news-img {
       width: 100%;
-      height: 160px;
+      height: 150px;
       object-fit: cover;
       border-radius: 10px;
       margin-bottom: 0.8rem;
@@ -179,6 +182,7 @@
       font-weight: 800;
       line-height: 1.3;
       margin-bottom: 0.5rem;
+      font-family: 'Segoe UI', Arial, sans-serif;
     }
 
     .news-btn {
@@ -193,19 +197,20 @@
       margin-top: 0.8rem;
     }
 
-    /* ESTILOS CARRUSEL DE VIDEOS */
+    /* ESTILOS EXACTOS DEL BOCETO PARA VIDEOS */
     .category-section {
       margin-bottom: 2.5rem;
     }
 
     .category-title {
-      font-size: 1.2rem;
-      font-weight: 800;
-      color: #38bdf8;
+      font-size: 1.4rem;
+      font-weight: 900;
+      color: var(--white);
       text-transform: uppercase;
+      letter-spacing: 1px;
       margin-bottom: 1rem;
-      border-left: 5px solid var(--header-blue);
-      padding-left: 0.8rem;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+      font-family: 'Arial Black', sans-serif;
     }
 
     .carousel-wrapper {
@@ -216,7 +221,7 @@
 
     .carousel-row {
       display: flex;
-      gap: 1.5rem;
+      gap: 1.2rem;
       overflow-x: auto;
       scroll-behavior: smooth;
       padding: 0.5rem 0.2rem;
@@ -234,45 +239,57 @@
       background-color: rgba(0, 0, 0, 0.85);
       color: var(--white);
       border: 2px solid var(--header-blue);
-      width: 40px;
-      height: 40px;
+      width: 42px;
+      height: 42px;
       border-radius: 50%;
-      font-size: 1.2rem;
+      font-size: 1.3rem;
       cursor: pointer;
       z-index: 10;
       display: flex;
       align-items: center;
       justify-content: center;
+      transition: background-color 0.2s, transform 0.2s;
+    }
+
+    .arrow-btn:hover {
+      background-color: var(--header-blue);
+      transform: translateY(-50%) scale(1.1);
     }
 
     .arrow-left { left: -15px; }
     .arrow-right { right: -15px; }
 
-    .video-card {
-      min-width: 280px;
-      max-width: 280px;
+    /* CUADRADOS GRISES IDÉNTICOS AL BOCETO */
+    .video-card-square {
+      min-width: 220px;
+      max-width: 220px;
+      height: 220px;
       background-color: var(--card-gray);
       border-radius: 16px;
-      padding: 1rem;
+      padding: 0.8rem;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      color: var(--text-dark);
       box-shadow: 0 6px 18px rgba(0, 0, 0, 0.6);
       flex-shrink: 0;
+      transition: transform 0.2s;
+      font-family: 'Segoe UI', Arial, sans-serif;
     }
 
-    .video-container {
+    .video-card-square:hover {
+      transform: translateY(-5px);
+    }
+
+    .video-container-inner {
       position: relative;
-      padding-bottom: 56.25%;
-      height: 0;
-      overflow: hidden;
+      width: 100%;
+      height: 100%;
       border-radius: 10px;
-      margin-bottom: 0.8rem;
+      overflow: hidden;
       background-color: #000;
     }
 
-    .video-container iframe {
+    .video-container-inner iframe {
       position: absolute;
       top: 0;
       left: 0;
@@ -288,6 +305,7 @@
       padding: 1.5rem 1rem;
       text-align: center;
       font-size: 0.8rem;
+      font-family: 'Segoe UI', Arial, sans-serif;
     }
 
     .footer-socials {
@@ -333,7 +351,7 @@
   <!-- CONTENIDO PRINCIPAL -->
   <main>
 
-    <!-- SECCIÓN 1: INICIO / NOTICIAS (ACTIVA POR DEFECTO) -->
+    <!-- SECCIÓN 1: INICIO / NOTICIAS -->
     <div id="sec-inicio" class="page-section active-section">
       <div class="news-grid">
         
@@ -370,77 +388,122 @@
       </div>
     </div>
 
-    <!-- SECCIÓN 2: VIDEOS CON CARRUSELES DESLIZABLES POR FILA -->
+    <!-- SECCIÓN 2: VIDEOS (FORMATO Y DISEÑO EXACTO A TU BOCETO) -->
     <div id="sec-videos" class="page-section">
 
       <!-- FILA NACIONAL -->
       <div class="category-section">
-        <h2 class="category-title">🇦🇷 Fútbol Nacional</h2>
+        <h2 class="category-title">NACIONAL</h2>
         <div class="carousel-wrapper">
           <button class="arrow-btn arrow-left" onclick="scrollCarousel('row-nacional', -300)">❮</button>
           <div class="carousel-row" id="row-nacional">
-            <div class="video-card">
-              <div class="video-container">
+            <div class="video-card-square">
+              <div class="video-container-inner">
                 <iframe src="https://www.youtube.com/embed/videoseries?list=PL3x" allowfullscreen></iframe>
               </div>
-              <h3 class="news-title">Programa Fútbol Nacional #1</h3>
             </div>
-            <div class="video-card">
-              <div class="video-container">
+            <div class="video-card-square">
+              <div class="video-container-inner">
                 <iframe src="https://www.youtube.com/embed/videoseries?list=PL3x" allowfullscreen></iframe>
               </div>
-              <h3 class="news-title">Resumen de la Fecha</h3>
+            </div>
+            <div class="video-card-square">
+              <div class="video-container-inner">
+                <iframe src="https://www.youtube.com/embed/videoseries?list=PL3x" allowfullscreen></iframe>
+              </div>
+            </div>
+            <div class="video-card-square">
+              <div class="video-container-inner">
+                <iframe src="https://www.youtube.com/embed/videoseries?list=PL3x" allowfullscreen></iframe>
+              </div>
+            </div>
+            <div class="video-card-square">
+              <div class="video-container-inner">
+                <iframe src="https://www.youtube.com/embed/videoseries?list=PL3x" allowfullscreen></iframe>
+              </div>
             </div>
           </div>
           <button class="arrow-btn arrow-right" onclick="scrollCarousel('row-nacional', 300)">❯</button>
         </div>
       </div>
 
-      <!-- FILA INTERNACIONAL -->
+      <!-- FILA SELECCION ARGENTINA -->
       <div class="category-section">
-        <h2 class="category-title">🌍 Fútbol Internacional</h2>
-        <div class="carousel-wrapper">
-          <button class="arrow-btn arrow-left" onclick="scrollCarousel('row-internacional', -300)">❮</button>
-          <div class="carousel-row" id="row-internacional">
-            <div class="video-card">
-              <div class="video-container">
-                <iframe src="https://www.youtube.com/embed/videoseries?list=PL3x" allowfullscreen></iframe>
-              </div>
-              <h3 class="news-title">Champions League & Ligas</h3>
-            </div>
-          </div>
-          <button class="arrow-btn arrow-right" onclick="scrollCarousel('row-internacional', 300)">❯</button>
-        </div>
-      </div>
-
-      <!-- FILA SELECCIONES -->
-      <div class="category-section">
-        <h2 class="category-title">🇦🇷 Selecciones</h2>
+        <h2 class="category-title">SELECCION ARGENTINA</h2>
         <div class="carousel-wrapper">
           <button class="arrow-btn arrow-left" onclick="scrollCarousel('row-selecciones', -300)">❮</button>
           <div class="carousel-row" id="row-selecciones">
-            <div class="video-card">
-              <div class="video-container">
+            <div class="video-card-square">
+              <div class="video-container-inner">
                 <iframe src="https://www.youtube.com/embed/videoseries?list=PL3x" allowfullscreen></iframe>
               </div>
-              <h3 class="news-title">Análisis de la Selección Argentina</h3>
+            </div>
+            <div class="video-card-square">
+              <div class="video-container-inner">
+                <iframe src="https://www.youtube.com/embed/videoseries?list=PL3x" allowfullscreen></iframe>
+              </div>
+            </div>
+            <div class="video-card-square">
+              <div class="video-container-inner">
+                <iframe src="https://www.youtube.com/embed/videoseries?list=PL3x" allowfullscreen></iframe>
+              </div>
+            </div>
+            <div class="video-card-square">
+              <div class="video-container-inner">
+                <iframe src="https://www.youtube.com/embed/videoseries?list=PL3x" allowfullscreen></iframe>
+              </div>
+            </div>
+            <div class="video-card-square">
+              <div class="video-container-inner">
+                <iframe src="https://www.youtube.com/embed/videoseries?list=PL3x" allowfullscreen></iframe>
+              </div>
             </div>
           </div>
           <button class="arrow-btn arrow-right" onclick="scrollCarousel('row-selecciones', 300)">❯</button>
         </div>
       </div>
 
-      <!-- FILA FÓRMULA 1 -->
+      <!-- FILA INTERNACIONAL -->
       <div class="category-section">
-        <h2 class="category-title">🏎️ Fórmula 1</h2>
+        <h2 class="category-title">INTERNACIONAL</h2>
+        <div class="carousel-wrapper">
+          <button class="arrow-btn arrow-left" onclick="scrollCarousel('row-internacional', -300)">❮</button>
+          <div class="carousel-row" id="row-internacional">
+            <div class="video-card-square">
+              <div class="video-container-inner">
+                <iframe src="https://www.youtube.com/embed/videoseries?list=PL3x" allowfullscreen></iframe>
+              </div>
+            </div>
+            <div class="video-card-square">
+              <div class="video-container-inner">
+                <iframe src="https://www.youtube.com/embed/videoseries?list=PL3x" allowfullscreen></iframe>
+              </div>
+            </div>
+            <div class="video-card-square">
+              <div class="video-container-inner">
+                <iframe src="https://www.youtube.com/embed/videoseries?list=PL3x" allowfullscreen></iframe>
+              </div>
+            </div>
+          </div>
+          <button class="arrow-btn arrow-right" onclick="scrollCarousel('row-internacional', 300)">❯</button>
+        </div>
+      </div>
+
+      <!-- FILA FORMULA 1 -->
+      <div class="category-section">
+        <h2 class="category-title">FORMULA 1</h2>
         <div class="carousel-wrapper">
           <button class="arrow-btn arrow-left" onclick="scrollCarousel('row-f1', -300)">❮</button>
           <div class="carousel-row" id="row-f1">
-            <div class="video-card">
-              <div class="video-container">
+            <div class="video-card-square">
+              <div class="video-container-inner">
                 <iframe src="https://www.youtube.com/embed/videoseries?list=PL3x" allowfullscreen></iframe>
               </div>
-              <h3 class="news-title">Especial F1 & Colapinto</h3>
+            </div>
+            <div class="video-card-square">
+              <div class="video-container-inner">
+                <iframe src="https://www.youtube.com/embed/videoseries?list=PL3x" allowfullscreen></iframe>
+              </div>
             </div>
           </div>
           <button class="arrow-btn arrow-right" onclick="scrollCarousel('row-f1', 300)">❯</button>
@@ -449,15 +512,19 @@
 
       <!-- FILA JUEGOS -->
       <div class="category-section">
-        <h2 class="category-title">🎮 Juegos / Gaming</h2>
+        <h2 class="category-title">JUEGOS</h2>
         <div class="carousel-wrapper">
           <button class="arrow-btn arrow-left" onclick="scrollCarousel('row-juegos', -300)">❮</button>
           <div class="carousel-row" id="row-juegos">
-            <div class="video-card">
-              <div class="video-container">
+            <div class="video-card-square">
+              <div class="video-container-inner">
                 <iframe src="https://www.youtube.com/embed/videoseries?list=PL3x" allowfullscreen></iframe>
               </div>
-              <h3 class="news-title">Stream Gaming Tremendo Ñoca</h3>
+            </div>
+            <div class="video-card-square">
+              <div class="video-container-inner">
+                <iframe src="https://www.youtube.com/embed/videoseries?list=PL3x" allowfullscreen></iframe>
+              </div>
             </div>
           </div>
           <button class="arrow-btn arrow-right" onclick="scrollCarousel('row-juegos', 300)">❯</button>
@@ -468,7 +535,7 @@
 
     <!-- SECCIÓN 3: INFORMACIÓN -->
     <div id="sec-informacion" class="page-section">
-      <div style="background-color: var(--card-gray); color: var(--text-dark); padding: 2rem; border-radius: 16px;">
+      <div style="background-color: var(--card-gray); color: var(--text-dark); padding: 2rem; border-radius: 16px; font-family: 'Segoe UI', Arial, sans-serif;">
         <h2 style="margin-bottom: 1rem;">Sobre Tremendo Ñoca Podcast</h2>
         <p>Somos un medio independiente de comunicación y análisis deportivo transmitido en vivo por YouTube, Twitch y Kick.</p>
       </div>
@@ -476,7 +543,7 @@
 
     <!-- SECCIÓN 4: LINKS DE STREAMS -->
     <div id="sec-streams" class="page-section">
-      <div style="background-color: var(--card-gray); color: var(--text-dark); padding: 2rem; border-radius: 16px;">
+      <div style="background-color: var(--card-gray); color: var(--text-dark); padding: 2rem; border-radius: 16px; font-family: 'Segoe UI', Arial, sans-serif;">
         <h2 style="margin-bottom: 1rem;">Nuestras Transmisiones en Vivo</h2>
         <p>Seguinos en vivo en nuestro canal oficial de YouTube y plataformas de streaming.</p>
       </div>
@@ -484,7 +551,7 @@
 
     <!-- SECCIÓN 5: JUEGOS -->
     <div id="sec-juegos" class="page-section">
-      <div style="background-color: var(--card-gray); color: var(--text-dark); padding: 2rem; border-radius: 16px;">
+      <div style="background-color: var(--card-gray); color: var(--text-dark); padding: 2rem; border-radius: 16px; font-family: 'Segoe UI', Arial, sans-serif;">
         <h2 style="margin-bottom: 1rem;">Sección de Juegos</h2>
         <p>Próximamente encuestas y trivias futboleras de Tremendo Ñoca.</p>
       </div>
@@ -506,17 +573,14 @@
   <script>
     // 1. CAMBIO DE SECCIÓN DINÁMICO
     function showSection(sectionId) {
-      // Oculta todas las secciones
       const sections = document.querySelectorAll('.page-section');
       sections.forEach(sec => sec.classList.remove('active-section'));
 
-      // Muestra la elegida
       const targetSection = document.getElementById(sectionId);
       if (targetSection) {
         targetSection.classList.add('active-section');
       }
 
-      // Cierra el menú desplegable al hacer clic
       document.getElementById('navMenu').classList.remove('active');
     }
 
@@ -530,7 +594,7 @@
     setInterval(updateTime, 1000);
     updateTime();
 
-    // 3. CLIMA DE BUENOS AIRES
+    // 3. CLIMA BUENOS AIRES
     async function getBuenosAiresTemp() {
       try {
         const response = await fetch('https://api.open-meteo.com/v1/forecast?latitude=-34.6037&longitude=-58.3816&current_weather=true');
@@ -564,7 +628,7 @@
       }
     }
 
-    // 6. NOTICIAS EN VIVO DE TYC SPORTS
+    // 6. CARGA AUTOMÁTICA DE NOTICIAS EN INICIO
     async function loadLiveNews() {
       try {
         const rssUrl = 'https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2Fwww.tycsports.com%2Frss%2Funiverse.xml';
