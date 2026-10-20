@@ -174,4 +174,283 @@
       height: 150px;
       object-fit: cover;
       border-radius: 10px;
-      margin-bottom:
+      margin-bottom: 0.8rem;
+    }
+
+    .news-title {
+      font-size: 1.05rem;
+      font-weight: 800;
+      line-height: 1.3;
+      margin-bottom: 0.5rem;
+      font-family: 'Segoe UI', Arial, sans-serif;
+    }
+
+    .news-btn {
+      display: block;
+      text-align: center;
+      background-color: var(--top-black);
+      color: var(--white);
+      text-decoration: none;
+      padding: 0.6rem 1rem;
+      font-weight: 700;
+      border-radius: 8px;
+      margin-top: 0.8rem;
+    }
+
+    /* ESTILOS VIDEOS Y CARRUSELES */
+    .category-section {
+      margin-bottom: 2.5rem;
+    }
+
+    .category-title {
+      font-size: 1.4rem;
+      font-weight: 900;
+      color: var(--white);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 1rem;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+      font-family: 'Arial Black', sans-serif;
+    }
+
+    .carousel-wrapper {
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+
+    .carousel-row {
+      display: flex;
+      gap: 1.2rem;
+      overflow-x: auto;
+      scroll-behavior: smooth;
+      padding: 0.5rem 0.2rem;
+      scrollbar-width: none;
+    }
+
+    .carousel-row::-webkit-scrollbar {
+      display: none;
+    }
+
+    .arrow-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: rgba(0, 0, 0, 0.85);
+      color: var(--white);
+      border: 2px solid var(--header-blue);
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      font-size: 1.3rem;
+      cursor: pointer;
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background-color 0.2s, transform 0.2s;
+    }
+
+    .arrow-btn:hover {
+      background-color: var(--header-blue);
+      transform: translateY(-50%) scale(1.1);
+    }
+
+    .arrow-left { left: -15px; }
+    .arrow-right { right: -15px; }
+
+    .video-card-square {
+      min-width: 250px;
+      max-width: 250px;
+      height: 220px;
+      background-color: var(--card-gray);
+      border-radius: 16px;
+      padding: 0.6rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.6);
+      flex-shrink: 0;
+      transition: transform 0.2s;
+      font-family: 'Segoe UI', Arial, sans-serif;
+    }
+
+    .video-card-square:hover {
+      transform: translateY(-5px);
+    }
+
+    .video-container-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      border-radius: 10px;
+      overflow: hidden;
+      background-color: #000;
+    }
+
+    .video-container-inner iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    /* FOOTER */
+    footer {
+      background-color: var(--top-black);
+      color: #94a3b8;
+      padding: 1.5rem 1rem;
+      text-align: center;
+      font-size: 0.8rem;
+      font-family: 'Segoe UI', Arial, sans-serif;
+    }
+
+    .footer-socials {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .footer-socials img {
+      height: 22px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- BARRA DE HORA Y CLIMA -->
+  <div class="top-bar">
+    <span class="location-tag">BsAs</span>
+    <span id="live-time">--:--</span>
+    <span id="live-temp">--°C</span>
+  </div>
+
+  <!-- ENCABEZADO -->
+  <header>
+    <div class="header-container">
+      <button class="menu-toggle" id="menuBtn" aria-label="Abrir Menú">☰</button>
+
+      <img src="logo%20derecha%20t%C3%B1.png" alt="Tremendo Ñoca Logo" class="brand-logo-img" onclick="showSection('sec-inicio')">
+
+      <nav class="nav-menu" id="navMenu">
+        <ul>
+          <li><a onclick="showSection('sec-inicio')">Inicio / Noticias</a></li>
+          <li><a onclick="showSection('sec-videos')">Videos</a></li>
+          <li><a onclick="showSection('sec-informacion')">Información</a></li>
+          <li><a onclick="showSection('sec-streams')">Links de Streams</a></li>
+          <li><a onclick="showSection('sec-juegos')">Juegos</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- CONTENIDO PRINCIPAL -->
+  <main>
+
+    <!-- SECCIÓN 1: INICIO / NOTICIAS -->
+    <div id="sec-inicio" class="page-section active-section">
+      <div class="news-grid">
+        
+        <article class="news-card">
+          <div>
+            <span class="tag-category" style="background-color: #1e3a8a;">Boca Juniors</span>
+            <img src="https://images.unsplash.com/photo-1508098682722-e99c43a406b2?w=500&auto=format&fit=crop" alt="Boca" class="news-img" id="img-boca">
+            <h3 class="news-title" id="title-boca">Últimas novedades del plantel de Boca</h3>
+            <p style="font-size: 0.85rem; color: #334155;">Actualización del mercado de pases y entrenamientos.</p>
+          </div>
+          <a href="https://www.tycsports.com/boca-juniors.html" target="_blank" class="news-btn">Ver en TyC Sports</a>
+        </article>
+
+        <article class="news-card">
+          <div>
+            <span class="tag-category" style="background-color: #991b1b;">River Plate</span>
+            <img src="https://images.unsplash.com/photo-1574629810360-7efbbe195018?w=500&auto=format&fit=crop" alt="River" class="news-img" id="img-river">
+            <h3 class="news-title" id="title-river">El armado del equipo de River para la próxima fecha</h3>
+            <p style="font-size: 0.85rem; color: #334155;">Toda la información confirmada del Millonario.</p>
+          </div>
+          <a href="https://www.tycsports.com/river-plate.html" target="_blank" class="news-btn">Ver en TyC Sports</a>
+        </article>
+
+        <article class="news-card">
+          <div>
+            <span class="tag-category" style="background-color: #b91c1c;">Automovilismo</span>
+            <img src="https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?w=500&auto=format&fit=crop" alt="Automovilismo" class="news-img" id="img-auto">
+            <h3 class="news-title" id="title-auto">Toda la actividad del Automovilismo y la F1</h3>
+            <p style="font-size: 0.85rem; color: #334155;">Cronogramas, tiempos y resultados de las carreras.</p>
+          </div>
+          <a href="https://www.espn.com.ar/deporte-motor/" target="_blank" class="news-btn">Ver en ESPN</a>
+        </article>
+
+      </div>
+    </div>
+
+    <!-- SECCIÓN 2: VIDEOS -->
+    <div id="sec-videos" class="page-section">
+
+      <!-- FILA NACIONAL -->
+      <div class="category-section">
+        <h2 class="category-title">NACIONAL</h2>
+        <div class="carousel-wrapper">
+          <button class="arrow-btn arrow-left" onclick="scrollCarousel('row-nacional', -320)">❮</button>
+          <div class="carousel-row" id="row-nacional">
+            <div class="video-card-square"><div class="video-container-inner"><iframe src="https://www.youtube.com/embed/quq4KMT51qE" allowfullscreen></iframe></div></div>
+            <div class="video-card-square"><div class="video-container-inner"><iframe src="https://www.youtube.com/embed/RMm61ixDe9U" allowfullscreen></iframe></div></div>
+            <div class="video-card-square"><div class="video-container-inner"><iframe src="https://www.youtube.com/embed/TFxeIsE2j-w" allowfullscreen></iframe></div></div>
+            <div class="video-card-square"><div class="video-container-inner"><iframe src="https://www.youtube.com/embed/dMU6S-Vlv-E" allowfullscreen></iframe></div></div>
+            <div class="video-card-square"><div class="video-container-inner"><iframe src="https://www.youtube.com/embed/ZlbBByAT3Nk" allowfullscreen></iframe></div></div>
+            <div class="video-card-square"><div class="video-container-inner"><iframe src="https://www.youtube.com/embed/ekQ3L93YkVY" allowfullscreen></iframe></div></div>
+            <div class="video-card-square"><div class="video-container-inner"><iframe src="https://www.youtube.com/embed/HAJbLZfcAKc" allowfullscreen></iframe></div></div>
+            <div class="video-card-square"><div class="video-container-inner"><iframe src="https://www.youtube.com/embed/u492NxdY4Jg" allowfullscreen></iframe></div></div>
+          </div>
+          <button class="arrow-btn arrow-right" onclick="scrollCarousel('row-nacional', 320)">❯</button>
+        </div>
+      </div>
+
+      <!-- FILA SELECCION ARGENTINA -->
+      <div class="category-section">
+        <h2 class="category-title">SELECCION ARGENTINA</h2>
+        <div class="carousel-wrapper">
+          <button class="arrow-btn arrow-left" onclick="scrollCarousel('row-selecciones', -320)">❮</button>
+          <div class="carousel-row" id="row-selecciones">
+            <div class="video-card-square"><div class="video-container-inner"><iframe src="https://www.youtube.com/embed/_MzO2hRGg0o" allowfullscreen></iframe></div></div>
+            <div class="video-card-square"><div class="video-container-inner"><iframe src="https://www.youtube.com/embed/DPs_HLt0Z20" allowfullscreen></iframe></div></div>
+            <div class="video-card-square"><div class="video-container-inner"><iframe src="https://www.youtube.com/embed/zGiozVzSQkg" allowfullscreen></iframe></div></div>
+            <div class="video-card-square"><div class="video-container-inner"><iframe src="https://www.youtube.com/embed/Mshh0xGADMo" allowfullscreen></iframe></div></div>
+            <div class="video-card-square"><div class="video-container-inner"><iframe src="https://www.youtube.com/embed/Fd9LBlGzlkY" allowfullscreen></iframe></div></div>
+            <div class="video-card-square"><div class="video-container-inner"><iframe src="https://www.youtube.com/embed/yNGGgQS4Yj4" allowfullscreen></iframe></div></div>
+            <div class="video-card-square"><div class="video-container-inner"><iframe src="https://www.youtube.com/embed/LvWESRAgxA8" allowfullscreen></iframe></div></div>
+          </div>
+          <button class="arrow-btn arrow-right" onclick="scrollCarousel('row-selecciones', 320)">❯</button>
+        </div>
+      </div>
+
+      <!-- FILA INTERNACIONAL -->
+      <div class="category-section">
+        <h2 class="category-title">INTERNACIONAL</h2>
+        <div class="carousel-wrapper">
+          <button class="arrow-btn arrow-left" onclick="scrollCarousel('row-internacional', -320)">❮</button>
+          <div class="carousel-row" id="row-internacional">
+            <div class="video-card-square"><div class="video-container-inner"><iframe src="https://www.youtube.com/embed/GsQqoxGpEsY" allowfullscreen></iframe></div></div>
+            <div class="video-card-square"><div class="video-container-inner"><iframe src="https://www.youtube.com/embed/bjH-YR5fsfo" allowfullscreen></iframe></div></div>
+            <div class="video-card-square"><div class="video-container-inner"><iframe src="https://www.youtube.com/embed/z7u1eHS61bk" allowfullscreen></iframe></div></div>
+            <div class="video-card-square"><div class="video-container-inner"><iframe src="https://www.youtube.com/embed/K_r4SpDJD54" allowfullscreen></iframe></div></div>
+            <div class="video-card-square"><div class="video-container-inner"><iframe src="https://www.youtube.com/embed/uDE2TRfe7F4" allowfullscreen></iframe></div></div>
+            <div class="video-card-square"><div class="video-container-inner"><iframe src="https://www.youtube.com/embed/1SSyWk-FvII" allowfullscreen></iframe></div></div>
+          </div>
+          <button class="arrow-btn arrow-right" onclick="scrollCarousel('row-internacional', 320)">❯</button>
+        </div>
+      </div>
+
+      <!-- FILA FORMULA 1 -->
+      <div class="category-section">
+        <h2 class="category-title">FORMULA 1</h2>
+        <div class="carousel-wrapper">
+          <button class="arrow-btn arrow-left" onclick="scrollCarousel('row-f1', -320)">❮</button>
+          <div class="carousel-row" id="row-f1">
+            <div class="video-card-square"><div class="video-container-inner"><iframe src="https://www.youtube.com/embed/videoseries?list=PL3x" allowfullscreen></iframe></div></div>
+          </div>
+          <button class="arrow-btn arrow-right" onclick="scrollCarousel('row-f1', 320)">❯</button>
+        </div>
