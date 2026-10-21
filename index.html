@@ -28,7 +28,7 @@
       min-height: 100vh;
     }
 
-    /* 1. FRANJA SUPERIOR CON HORA Y TEMPERATURA DE BUENOS AIRES */
+    /* 1. FRANJA SUPERIOR CON HORA Y TEMPERATURA */
     .top-bar {
       background-color: var(--top-black);
       color: var(--white);
@@ -137,56 +137,51 @@
       display: block;
     }
 
-    /* ESTILOS INICIO / NOTICIAS */
+    /* ESTILOS INICIO / NOTICIAS / MEDIOS DESTACADOS */
     .news-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 2rem;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem;
     }
 
-    .news-card {
+    .media-card {
       background-color: var(--card-gray);
       border-radius: 16px;
-      min-height: 300px;
       padding: 1.2rem;
       display: flex;
       flex-direction: column;
+      align-items: center;
       justify-content: space-between;
       color: var(--text-dark);
       box-shadow: 0 6px 18px rgba(0, 0, 0, 0.6);
       font-family: 'Segoe UI', Arial, sans-serif;
+      text-align: center;
+      transition: transform 0.2s;
     }
 
-    .tag-category {
-      background-color: #0f172a;
-      color: #fff;
-      font-size: 0.75rem;
-      font-weight: 800;
-      padding: 0.2rem 0.6rem;
-      border-radius: 4px;
-      display: inline-block;
-      margin-bottom: 0.6rem;
-      text-transform: uppercase;
+    .media-card:hover {
+      transform: translateY(-5px);
     }
 
-    .news-img {
+    .media-logo {
       width: 100%;
-      height: 150px;
-      object-fit: cover;
+      height: 90px;
+      object-fit: contain;
+      margin-bottom: 1rem;
+      background-color: #ffffff;
+      padding: 0.5rem;
       border-radius: 10px;
-      margin-bottom: 0.8rem;
     }
 
-    .news-title {
-      font-size: 1.05rem;
+    .media-title {
+      font-size: 1.1rem;
       font-weight: 800;
-      line-height: 1.3;
-      margin-bottom: 0.5rem;
-      font-family: 'Segoe UI', Arial, sans-serif;
+      margin-bottom: 0.8rem;
     }
 
     .news-btn {
       display: block;
+      width: 100%;
       text-align: center;
       background-color: var(--top-black);
       color: var(--white);
@@ -194,10 +189,9 @@
       padding: 0.6rem 1rem;
       font-weight: 700;
       border-radius: 8px;
-      margin-top: 0.8rem;
     }
 
-    /* ESTILOS EXACTOS DEL BOCETO PARA VIDEOS */
+    /* ESTILOS VIDEOS Y CARRUSELES */
     .category-section {
       margin-bottom: 2.5rem;
     }
@@ -259,7 +253,6 @@
     .arrow-left { left: -15px; }
     .arrow-right { right: -15px; }
 
-    /* CUADRADOS GRISES IDÉNTICOS AL BOCETO */
     .video-card-square {
       min-width: 250px;
       max-width: 250px;
@@ -316,13 +309,15 @@
     }
 
     .footer-socials img {
-      height: 22px;
+      height: 24px;
+      width: auto;
+      object-fit: contain;
     }
   </style>
 </head>
 <body>
 
-  <!-- BARRA DE HORA Y CLIMA -->
+  <!-- BARRA DE HORA Y CLIMA EN VIVO -->
   <div class="top-bar">
     <span class="location-tag">BsAs</span>
     <span id="live-time">--:--</span>
@@ -351,44 +346,51 @@
   <!-- CONTENIDO PRINCIPAL -->
   <main>
 
-    <!-- SECCIÓN 1: INICIO / NOTICIAS -->
+    <!-- SECCIÓN 1: INICIO CON MEDIOS DESTACADOS -->
     <div id="sec-inicio" class="page-section active-section">
+      <h2 style="font-size: 1.5rem; margin-bottom: 1.5rem; text-align: center; font-family: 'Arial Black', sans-serif;">MEDIOS Y NOTICIAS DESTACADAS</h2>
+      
       <div class="news-grid">
         
-        <article class="news-card">
-          <div>
-            <span class="tag-category" style="background-color: #1e3a8a;">Boca Juniors</span>
-            <img src="https://images.unsplash.com/photo-1508098682722-e99c43a406b2?w=500&auto=format&fit=crop" alt="Boca" class="news-img" id="img-boca">
-            <h3 class="news-title" id="title-boca">Últimas novedades del plantel de Boca</h3>
-            <p style="font-size: 0.85rem; color: #334155;">Actualización del mercado de pases y entrenamientos.</p>
-          </div>
-          <a href="https://www.tycsports.com/boca-juniors.html" target="_blank" class="news-btn">Ver en TyC Sports</a>
+        <!-- TYC SPORTS -->
+        <article class="media-card">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/TyC_Sports_logo.svg/1200px-TyC_Sports_logo.svg.png" alt="TyC Sports" class="media-logo">
+          <h3 class="media-title">TyC Sports</h3>
+          <a href="https://www.tycsports.com/" target="_blank" class="news-btn">Ir a TyC Sports</a>
         </article>
 
-        <article class="news-card">
-          <div>
-            <span class="tag-category" style="background-color: #991b1b;">River Plate</span>
-            <img src="https://images.unsplash.com/photo-1574629810360-7efbbe195018?w=500&auto=format&fit=crop" alt="River" class="news-img" id="img-river">
-            <h3 class="news-title" id="title-river">El armado del equipo de River para la próxima fecha</h3>
-            <p style="font-size: 0.85rem; color: #334155;">Toda la información confirmada del Millonario.</p>
-          </div>
-          <a href="https://www.tycsports.com/river-plate.html" target="_blank" class="news-btn">Ver en TyC Sports</a>
+        <!-- ESPN -->
+        <article class="media-card">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/ESPN_wordmark.svg/1280px-ESPN_wordmark.svg.png" alt="ESPN" class="media-logo">
+          <h3 class="media-title">ESPN Argentina</h3>
+          <a href="https://www.espn.com.ar/" target="_blank" class="news-btn">Ir a ESPN</a>
         </article>
 
-        <article class="news-card">
-          <div>
-            <span class="tag-category" style="background-color: #b91c1c;">Automovilismo</span>
-            <img src="https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?w=500&auto=format&fit=crop" alt="Automovilismo" class="news-img" id="img-auto">
-            <h3 class="news-title" id="title-auto">Toda la actividad del Automovilismo y la F1</h3>
-            <p style="font-size: 0.85rem; color: #334155;">Cronogramas, tiempos y resultados de las carreras.</p>
-          </div>
-          <a href="https://www.espn.com.ar/deporte-motor/" target="_blank" class="news-btn">Ver en ESPN</a>
+        <!-- TN -->
+        <article class="media-card">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Todo_Noticias_2016.svg/1200px-Todo_Noticias_2016.svg.png" alt="TN" class="media-logo">
+          <h3 class="media-title">TN Deportivo</h3>
+          <a href="https://tn.com.ar/deportes/" target="_blank" class="news-btn">Ir a TN</a>
+        </article>
+
+        <!-- PÁGINA 12 -->
+        <article class="media-card">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Logo_Pagina12.svg/1200px-Logo_Pagina12.svg.png" alt="Página/12" class="media-logo">
+          <h3 class="media-title">Página/12</h3>
+          <a href="https://www.pagina12.com.ar/secciones/deportes" target="_blank" class="news-btn">Ir a Página/12</a>
+        </article>
+
+        <!-- INFOBAE -->
+        <article class="media-card">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Infobae_logo.svg/1200px-Infobae_logo.svg.png" alt="Infobae" class="media-logo">
+          <h3 class="media-title">Infobae Deportes</h3>
+          <a href="https://www.infobae.com/deportes/" target="_blank" class="news-btn">Ir a Infobae</a>
         </article>
 
       </div>
     </div>
 
-    <!-- SECCIÓN 2: VIDEOS -->
+    <!-- SECCIÓN 2: VIDEOS CON CATEGORÍA CHISMES SUMADA -->
     <div id="sec-videos" class="page-section">
 
       <!-- FILA NACIONAL -->
@@ -397,55 +399,14 @@
         <div class="carousel-wrapper">
           <button class="arrow-btn arrow-left" onclick="scrollCarousel('row-nacional', -320)">❮</button>
           <div class="carousel-row" id="row-nacional">
-
-            <div class="video-card-square">
-              <div class="video-container-inner">
-                <iframe src="https://www.youtube.com/embed/quq4KMT51qE" allowfullscreen></iframe>
-              </div>
-            </div>
-
-            <div class="video-card-square">
-              <div class="video-container-inner">
-                <iframe src="https://www.youtube.com/embed/RMm61ixDe9U" allowfullscreen></iframe>
-              </div>
-            </div>
-
-            <div class="video-card-square">
-              <div class="video-container-inner">
-                <iframe src="https://www.youtube.com/embed/TFxeIsE2j-w" allowfullscreen></iframe>
-              </div>
-            </div>
-
-            <div class="video-card-square">
-              <div class="video-container-inner">
-                <iframe src="https://www.youtube.com/embed/dMU6S-Vlv-E" allowfullscreen></iframe>
-              </div>
-            </div>
-
-            <div class="video-card-square">
-              <div class="video-container-inner">
-                <iframe src="https://www.youtube.com/embed/ZlbBByAT3Nk" allowfullscreen></iframe>
-              </div>
-            </div>
-
-            <div class="video-card-square">
-              <div class="video-container-inner">
-                <iframe src="https://www.youtube.com/embed/ekQ3L93YkVY" allowfullscreen></iframe>
-              </div>
-            </div>
-
-            <div class="video-card-square">
-              <div class="video-container-inner">
-                <iframe src="https://www.youtube.com/embed/HAJbLZfcAKc" allowfullscreen></iframe>
-              </div>
-            </div>
-
-            <div class="video-card-square">
-              <div class="video-container-inner">
-                <iframe src="https://www.youtube.com/embed/u492NxdY4Jg" allowfullscreen></iframe>
-              </div>
-            </div>
-
+            <div class="video-card-square"><div class="video-container-inner"><iframe src="https://www.youtube.com/embed/quq4KMT51qE" allowfullscreen></iframe></div></div>
+            <div class="video-card-square"><div class="video-container-inner"><iframe src="https://www.youtube.com/embed/RMm61ixDe9U" allowfullscreen></iframe></div></div>
+            <div class="video-card-square"><div class="video-container-inner"><iframe src="https://www.youtube.com/embed/TFxeIsE2j-w" allowfullscreen></iframe></div></div>
+            <div class="video-card-square"><div class="video-container-inner"><iframe src="https://www.youtube.com/embed/dMU6S-Vlv-E" allowfullscreen></iframe></div></div>
+            <div class="video-card-square"><div class="video-container-inner"><iframe src="https://www.youtube.com/embed/ZlbBByAT3Nk" allowfullscreen></iframe></div></div>
+            <div class="video-card-square"><div class="video-container-inner"><iframe src="https://www.youtube.com/embed/ekQ3L93YkVY" allowfullscreen></iframe></div></div>
+            <div class="video-card-square"><div class="video-container-inner"><iframe src="https://www.youtube.com/embed/HAJbLZfcAKc" allowfullscreen></iframe></div></div>
+            <div class="video-card-square"><div class="video-container-inner"><iframe src="https://www.youtube.com/embed/u492NxdY4Jg" allowfullscreen></iframe></div></div>
           </div>
           <button class="arrow-btn arrow-right" onclick="scrollCarousel('row-nacional', 320)">❯</button>
         </div>
@@ -457,49 +418,13 @@
         <div class="carousel-wrapper">
           <button class="arrow-btn arrow-left" onclick="scrollCarousel('row-selecciones', -320)">❮</button>
           <div class="carousel-row" id="row-selecciones">
-
-            <div class="video-card-square">
-              <div class="video-container-inner">
-                <iframe src="https://www.youtube.com/embed/_MzO2hRGg0o" allowfullscreen></iframe>
-              </div>
-            </div>
-
-            <div class="video-card-square">
-              <div class="video-container-inner">
-                <iframe src="https://www.youtube.com/embed/DPs_HLt0Z20" allowfullscreen></iframe>
-              </div>
-            </div>
-
-            <div class="video-card-square">
-              <div class="video-container-inner">
-                <iframe src="https://www.youtube.com/embed/zGiozVzSQkg" allowfullscreen></iframe>
-              </div>
-            </div>
-
-            <div class="video-card-square">
-              <div class="video-container-inner">
-                <iframe src="https://www.youtube.com/embed/Mshh0xGADMo" allowfullscreen></iframe>
-              </div>
-            </div>
-
-            <div class="video-card-square">
-              <div class="video-container-inner">
-                <iframe src="https://www.youtube.com/embed/Fd9LBlGzlkY" allowfullscreen></iframe>
-              </div>
-            </div>
-
-            <div class="video-card-square">
-              <div class="video-container-inner">
-                <iframe src="https://www.youtube.com/embed/yNGGgQS4Yj4" allowfullscreen></iframe>
-              </div>
-            </div>
-
-            <div class="video-card-square">
-              <div class="video-container-inner">
-                <iframe src="https://www.youtube.com/embed/LvWESRAgxA8" allowfullscreen></iframe>
-              </div>
-            </div>
-
+            <div class="video-card-square"><div class="video-container-inner"><iframe src="https://www.youtube.com/embed/_MzO2hRGg0o" allowfullscreen></iframe></div></div>
+            <div class="video-card-square"><div class="video-container-inner"><iframe src="https://www.youtube.com/embed/DPs_HLt0Z20" allowfullscreen></iframe></div></div>
+            <div class="video-card-square"><div class="video-container-inner"><iframe src="https://www.youtube.com/embed/zGiozVzSQkg" allowfullscreen></iframe></div></div>
+            <div class="video-card-square"><div class="video-container-inner"><iframe src="https://www.youtube.com/embed/Mshh0xGADMo" allowfullscreen></iframe></div></div>
+            <div class="video-card-square"><div class="video-container-inner"><iframe src="https://www.youtube.com/embed/Fd9LBlGzlkY" allowfullscreen></iframe></div></div>
+            <div class="video-card-square"><div class="video-container-inner"><iframe src="https://www.youtube.com/embed/yNGGgQS4Yj4" allowfullscreen></iframe></div></div>
+            <div class="video-card-square"><div class="video-container-inner"><iframe src="https://www.youtube.com/embed/LvWESRAgxA8" allowfullscreen></iframe></div></div>
           </div>
           <button class="arrow-btn arrow-right" onclick="scrollCarousel('row-selecciones', 320)">❯</button>
         </div>
@@ -511,45 +436,26 @@
         <div class="carousel-wrapper">
           <button class="arrow-btn arrow-left" onclick="scrollCarousel('row-internacional', -320)">❮</button>
           <div class="carousel-row" id="row-internacional">
-
-            <div class="video-card-square">
-              <div class="video-container-inner">
-                <iframe src="https://www.youtube.com/embed/GsQqoxGpEsY" allowfullscreen></iframe>
-              </div>
-            </div>
-
-            <div class="video-card-square">
-              <div class="video-container-inner">
-                <iframe src="https://www.youtube.com/embed/bjH-YR5fsfo" allowfullscreen></iframe>
-              </div>
-            </div>
-
-            <div class="video-card-square">
-              <div class="video-container-inner">
-                <iframe src="https://www.youtube.com/embed/z7u1eHS61bk" allowfullscreen></iframe>
-              </div>
-            </div>
-
-            <div class="video-card-square">
-              <div class="video-container-inner">
-                <iframe src="https://www.youtube.com/embed/K_r4SpDJD54" allowfullscreen></iframe>
-              </div>
-            </div>
-
-            <div class="video-card-square">
-              <div class="video-container-inner">
-                <iframe src="https://www.youtube.com/embed/uDE2TRfe7F4" allowfullscreen></iframe>
-              </div>
-            </div>
-
-            <div class="video-card-square">
-              <div class="video-container-inner">
-                <iframe src="https://www.youtube.com/embed/1SSyWk-FvII" allowfullscreen></iframe>
-              </div>
-            </div>
-
+            <div class="video-card-square"><div class="video-container-inner"><iframe src="https://www.youtube.com/embed/GsQqoxGpEsY" allowfullscreen></iframe></div></div>
+            <div class="video-card-square"><div class="video-container-inner"><iframe src="https://www.youtube.com/embed/bjH-YR5fsfo" allowfullscreen></iframe></div></div>
+            <div class="video-card-square"><div class="video-container-inner"><iframe src="https://www.youtube.com/embed/z7u1eHS61bk" allowfullscreen></iframe></div></div>
+            <div class="video-card-square"><div class="video-container-inner"><iframe src="https://www.youtube.com/embed/K_r4SpDJD54" allowfullscreen></iframe></div></div>
+            <div class="video-card-square"><div class="video-container-inner"><iframe src="https://www.youtube.com/embed/uDE2TRfe7F4" allowfullscreen></iframe></div></div>
+            <div class="video-card-square"><div class="video-container-inner"><iframe src="https://www.youtube.com/embed/1SSyWk-FvII" allowfullscreen></iframe></div></div>
           </div>
           <button class="arrow-btn arrow-right" onclick="scrollCarousel('row-internacional', 320)">❯</button>
+        </div>
+      </div>
+
+      <!-- FILA CHISMES DEPORTIVOS (NUEVA) -->
+      <div class="category-section">
+        <h2 class="category-title">CHISMES</h2>
+        <div class="carousel-wrapper">
+          <button class="arrow-btn arrow-left" onclick="scrollCarousel('row-chismes', -320)">❮</button>
+          <div class="carousel-row" id="row-chismes">
+            <div class="video-card-square"><div class="video-container-inner"><iframe src="https://www.youtube.com/embed/videoseries?list=PL3x" allowfullscreen></iframe></div></div>
+          </div>
+          <button class="arrow-btn arrow-right" onclick="scrollCarousel('row-chismes', 320)">❯</button>
         </div>
       </div>
 
@@ -559,11 +465,7 @@
         <div class="carousel-wrapper">
           <button class="arrow-btn arrow-left" onclick="scrollCarousel('row-f1', -320)">❮</button>
           <div class="carousel-row" id="row-f1">
-            <div class="video-card-square">
-              <div class="video-container-inner">
-                <iframe src="https://www.youtube.com/embed/videoseries?list=PL3x" allowfullscreen></iframe>
-              </div>
-            </div>
+            <div class="video-card-square"><div class="video-container-inner"><iframe src="https://www.youtube.com/embed/videoseries?list=PL3x" allowfullscreen></iframe></div></div>
           </div>
           <button class="arrow-btn arrow-right" onclick="scrollCarousel('row-f1', 320)">❯</button>
         </div>
@@ -575,11 +477,7 @@
         <div class="carousel-wrapper">
           <button class="arrow-btn arrow-left" onclick="scrollCarousel('row-juegos', -320)">❮</button>
           <div class="carousel-row" id="row-juegos">
-            <div class="video-card-square">
-              <div class="video-container-inner">
-                <iframe src="https://www.youtube.com/embed/videoseries?list=PL3x" allowfullscreen></iframe>
-              </div>
-            </div>
+            <div class="video-card-square"><div class="video-container-inner"><iframe src="https://www.youtube.com/embed/videoseries?list=PL3x" allowfullscreen></iframe></div></div>
           </div>
           <button class="arrow-btn arrow-right" onclick="scrollCarousel('row-juegos', 320)">❯</button>
         </div>
@@ -616,7 +514,8 @@
   <!-- FOOTER -->
   <footer>
     <div class="footer-socials">
-      <a href="https://www.facebook.com/profile.php?id=61555152399574" target="_blank"><img src="cara%20ig.png" alt="Facebook"></a>
+      <!-- RUTA Y ARCHIVOS CORREGIDOS DE REDES SOCIALES -->
+      <a href="https://www.facebook.com/profile.php?id=61555152399574" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/b/b8/2021_Facebook_icon.svg" alt="Facebook"></a>
       <a href="https://www.instagram.com/tremendo_noca/" target="_blank"><img src="logo%20ig%20de%20ig.png" alt="Instagram"></a>
       <a href="https://www.youtube.com/@tremendonocapodcast" target="_blank"><img src="logo%20youtube%20ig.png" alt="YouTube"></a>
       <a href="https://open.spotify.com/show/40DdjJo8T9RGfjvaO6AWNR?si=cadd705275d64582" target="_blank"><img src="spotidy.png" alt="Spotify"></a>
@@ -625,7 +524,6 @@
   </footer>
 
   <script>
-    // 1. CAMBIO DE SECCIÓN DINÁMICO
     function showSection(sectionId) {
       const sections = document.querySelectorAll('.page-section');
       sections.forEach(sec => sec.classList.remove('active-section'));
@@ -638,7 +536,6 @@
       document.getElementById('navMenu').classList.remove('active');
     }
 
-    // 2. RELOJ DIGITAL EN VIVO
     function updateTime() {
       const now = new Date();
       const hours = String(now.getHours()).padStart(2, '0');
@@ -648,7 +545,6 @@
     setInterval(updateTime, 1000);
     updateTime();
 
-    // 3. CLIMA AUTOMÁTICO SEGÚN UBICACIÓN DEL USUARIO (O BUENOS AIRES POR DEFECTO)
     function getLocalWeather() {
       const tempElement = document.getElementById('live-temp');
       const locationElement = document.querySelector('.location-tag');
@@ -683,7 +579,6 @@
     }
     getLocalWeather();
 
-    // 4. ABRIR/CERRAR MENÚ DESPLEGABLE
     const menuBtn = document.getElementById('menuBtn');
     const navMenu = document.getElementById('navMenu');
     menuBtn.addEventListener('click', (e) => {
@@ -694,44 +589,12 @@
       navMenu.classList.remove('active');
     });
 
-    // 5. DESLIZAR CARRUSELES CON FLECHAS
     function scrollCarousel(rowId, distance) {
       const row = document.getElementById(rowId);
       if (row) {
         row.scrollBy({ left: distance, behavior: 'smooth' });
       }
     }
-
-    // 6. CARGA AUTOMÁTICA DE NOTICIAS EN INICIO
-    async function loadLiveNews() {
-      try {
-        const rssUrl = 'https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2Fwww.tycsports.com%2Frss%2Funiverse.xml';
-        const response = await fetch(rssUrl);
-        const data = await response.json();
-
-        if (data.status === 'ok' && data.items.length > 0) {
-          const bocaNews = data.items.find(item => item.title.toLowerCase().includes('boca'));
-          const riverNews = data.items.find(item => item.title.toLowerCase().includes('river'));
-          const autoNews = data.items.find(item => item.title.toLowerCase().includes('f1') || item.title.toLowerCase().includes('colapinto') || item.title.toLowerCase().includes('tc'));
-
-          if (bocaNews) {
-            document.getElementById('title-boca').textContent = bocaNews.title;
-            if (bocaNews.thumbnail) document.getElementById('img-boca').src = bocaNews.thumbnail;
-          }
-          if (riverNews) {
-            document.getElementById('title-river').textContent = riverNews.title;
-            if (riverNews.thumbnail) document.getElementById('img-river').src = riverNews.thumbnail;
-          }
-          if (autoNews) {
-            document.getElementById('title-auto').textContent = autoNews.title;
-            if (autoNews.thumbnail) document.getElementById('img-auto').src = autoNews.thumbnail;
-          }
-        }
-      } catch (error) {
-        console.log('Cargando noticias base...', error);
-      }
-    }
-    loadLiveNews();
   </script>
 </body>
 </html>
